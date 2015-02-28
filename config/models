@@ -1,0 +1,39 @@
+User
+    name Text
+	password Text Maybe
+	language Text Maybe
+	type UserType
+    UniqueUser name
+    deriving Typeable
+
+TestForm1
+	userName Text
+	timestamp UTCTime
+	count Int
+	info Text
+	
+TestForm2
+	userName Text
+	timestamp UTCTime
+	count Int
+	info Text
+
+TestForm3
+	userName Text
+	timestamp UTCTime
+	count Int
+	info Text
+
+TestWithWorker
+	userName Text
+	timestamp UTCTime
+	worker Text
+	rating Int
+
+TestDateControls
+	userName Text
+	timestamp UTCTime
+	day Day
+	time TimeOfDay
+
+ -- By default this file is used in Model.hs (which is imported by Foundation.hs)

@@ -1,0 +1,33 @@
+# NOTE: These settings can be overridden by environment variables as well, in
+# particular:
+#
+#    MYSQL_HOST
+#    MYSQL_PORT
+#    MYSQL_USER
+#    MYSQL_PASSWORD
+#    MYSQL_DATABASE
+
+Default: &defaults
+  user: forms
+  password: forms
+  host: localhost
+  port: 3306
+  database: forms
+  poolsize: 10
+
+Development:
+  <<: *defaults
+
+Testing:
+  database: forms
+  <<: *defaults
+
+Staging:
+  database: forms
+  poolsize: 100
+  <<: *defaults
+
+Production:
+  database: forms
+  poolsize: 100
+  <<: *defaults

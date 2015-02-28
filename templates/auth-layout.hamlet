@@ -1,0 +1,10 @@
+<div.container>
+    $maybe msg <- mmsg
+        <div.alert.alert-info #message>#{msg}
+<div.row>
+    <div.col-md-4.col-md-offset-4>
+        <div.login-panel.panel.panel-default>
+            <div.panel-heading>
+                _{MsgLogin}
+            <div.panel-body>
+                ^{widget}

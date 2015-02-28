@@ -1,0 +1,22 @@
+$if isAdmin
+    <h3>_{MsgAdmin}
+    <ul>
+        <li>
+            <a href=@{AddUserR}>_{MsgAddUser}
+        <li>
+            <a href=@{ChangeUserPasswordR}>_{MsgChangeUserPassword}
+    <ul>
+        $forall (FormDef name msg _) <- adminForms
+            <li>
+                <a href=@{FormR name}>_{msg}
+$if isManager
+    <h3>_{MsgManager}
+    <ul>
+        $forall (FormDef name msg _) <- managerForms
+            <li>
+                <a href=@{FormR name}>_{msg}
+<h3>_{MsgWorker}
+<ul>
+    $forall (FormDef name msg _) <- workerForms
+        <li>
+            <a href=@{FormR name}>_{msg}

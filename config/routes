@@ -1,0 +1,17 @@
+/static StaticR Static getStatic
+/auth   AuthR   Auth   getAuth
+
+/favicon.ico FaviconR GET
+/robots.txt RobotsR GET
+
+/firstUser/#Text/#Text FirstUserR GET
+
+/ HomeR GET
+
+/changePassword ChangePasswordR GET POST
+/addUser AddUserR GET POST
+/changeUserPassword ChangeUserPasswordR GET POST
+
+/form/#Text FormR GET POST
+
+/setLanguage/#Text SetLanguageR GET
