@@ -5,6 +5,7 @@ import Yesod.Form.Bootstrap3
 import FormType
 import Data.Default
 
+-- three arguments: unique id string, localized name, form definition
 adminForms, managerForms, workerForms :: [FormDef]
 adminForms = 
     [
@@ -27,11 +28,12 @@ atest dc = formWrapper $ \ uname time -> (dc uname time)
 
 wtest = formWrapper $ \ uname time -> (TestWithWorker uname time)
     <$> areq (selectField workers) (bfs MsgWorker) Nothing
-    <*> areq intField (bfs MsgRating) (Just 4)
+    <*> areq intField (bfs MsgRating) Nothing 
   where 
     workers = do
-        us <- runDB $ selectList [] []
-        optionsPairs $ map (\(Entity _ User{userName=name}) -> (name, name)) us
+        users <- runDB $ selectList [] [] -- query all users from database
+        let workerNames = map (\(Entity _ User{userName=name}) -> (name, name)) users --map each user like this: user -> (userName, userName)
+        optionsPairs $ workerNames --optionsPairs makes "option list" form <select> element
 
 dtest = formWrapper $ \ uname time -> (TestDateControls uname time)
     <$> areq (jqueryDayField def) (bfs MsgDate) Nothing

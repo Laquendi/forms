@@ -6,11 +6,12 @@ User
     UniqueUser name
     deriving Typeable
 
-TestForm1
-	userName Text
-	timestamp UTCTime
-	count Int
-	info Text
+--All form data definitions should begin with userName and timestamp
+TestForm1 -- table name will be test_form_1
+	userName Text       --"boilerplate"
+	timestamp UTCTime   --"boilerplate"
+	count Int           --store INTEGER type with column name count
+	info Text           --VARCHAR type with column name info
 	
 TestForm2
 	userName Text
@@ -27,7 +28,7 @@ TestForm3
 TestWithWorker
 	userName Text
 	timestamp UTCTime
-	worker Text
+	worker Text  --store worker name in VARCHAR. Could also use User table primary key UserId
 	rating Int
 
 TestDateControls
@@ -35,5 +36,3 @@ TestDateControls
 	timestamp UTCTime
 	day Day
 	time TimeOfDay
-
- -- By default this file is used in Model.hs (which is imported by Foundation.hs)
