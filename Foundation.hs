@@ -58,7 +58,8 @@ type Form x = Html -> MForm (HandlerT App IO) (FormResult x, Widget)
 -- Please see the documentation for the Yesod typeclass. There are a number
 -- of settings which can be configured by overriding methods here.
 instance Yesod App where
-    approot = ApprootMaster $ appRoot . settings
+    approot = if development then ApprootMaster $ appRoot . settings else ApprootStatic "http://keskisentila.fi/forms"
+    --approot = ApprootMaster $ appRoot . settings
 
     -- Store session data on the client in encrypted cookies,
     -- default session idle timeout is 120 minutes
